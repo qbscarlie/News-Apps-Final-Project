@@ -92,17 +92,17 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
       .style("text-anchor", "end")
       .text("Number of Students");
 
-  var school = svg.selectAll(".school")
+  var city = svg.selectAll(".city")
       .data(places)
     .enter().append("g")
-      .attr("class", "school");
+      .attr("class", "city");
 
-  school.append("path")
+  city.append("path")
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d) { return color(d.name); });
 
-  school.append("text")
+  city.append("text")
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
       .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.date) + ")"; })
       .attr("x", 3)
@@ -110,7 +110,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
       .text(function(d) { return d.name; });
 });
 
-
+/**
 .on("mousemove", function(d) {
 
     var xPos = d3.mouse(this)[0] + margin.left + 10;
@@ -131,3 +131,4 @@ $(".tt").html(
   "<div class='date'>"+displayDate+": </div>"+
   "<div class='rate'>"+displayVal+"</div>"
 )
+**/
