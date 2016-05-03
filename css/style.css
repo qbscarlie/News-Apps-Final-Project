@@ -3,6 +3,7 @@
 
 .chart {
   height: 500px;
+  position: relative;
 }
 
 
@@ -27,3 +28,10 @@ body {
   stroke-width: 1.5px;
 }
 
+.tt {
+    background-color: #fff;
+    padding: 8px;
+    outline: 1px solid #ccc;
+    display: none;
+    position: absolute;
+}

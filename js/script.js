@@ -92,20 +92,42 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
       .style("text-anchor", "end")
       .text("Number of Students");
 
-  var city = svg.selectAll(".city")
+  var school = svg.selectAll(".school")
       .data(places)
     .enter().append("g")
-      .attr("class", "city");
+      .attr("class", "school");
 
-  city.append("path")
+  school.append("path")
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d) { return color(d.name); });
 
-  city.append("text")
+  school.append("text")
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
       .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.date) + ")"; })
       .attr("x", 3)
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
 });
+
+/**
+.on("mousemove", function(d) {
+
+    var xPos = d3.mouse(this)[0] + margin.left + 10;
+    var yPos = d3.mouse(this)[1] + margin.top + 10;
+
+    $(".tt").css({
+        "left": xPos + "px",
+        "top": yPos + "px"
+    })
+})
+
+var displayDate = moment(d.Date).format("YYYY");
+var displayVal = d.rate+"%";
+
+//Append the values to the tooltip with some markup.
+$(".tt").html(
+  "<div class='name'>"+d.name+"</div>"+
+  "<div class='date'>"+displayDate+": </div>"+
+  "<div class='rate'>"+displayVal+"</div>"
+)**/
