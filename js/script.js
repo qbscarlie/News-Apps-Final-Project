@@ -110,7 +110,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
       .text(function(d) { return d.name; });
 });
 
-/**
+
 .on("mousemove", function(d) {
 
     var xPos = d3.mouse(this)[0] + margin.left + 10;
@@ -130,4 +130,4 @@ $(".tt").html(
   "<div class='name'>"+d.name+"</div>"+
   "<div class='date'>"+displayDate+": </div>"+
   "<div class='rate'>"+displayVal+"</div>"
-)**/
+)
