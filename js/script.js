@@ -27,7 +27,7 @@ var yAxis = d3.svg.axis()
 //Based on the `date` and `value` for each row in each series.
 var line = d3.svg.line()
     .defined(function(d) { return d.rate; }) /*This checks to make sure there's a value for d.rate. If not, it leaves it out of the line. */
-    .interpolate("basis")
+    .interpolate("linear")
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.rate); });
 
@@ -105,10 +105,11 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
 
   city.append("text")
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.date) + ")"; })
+      .attr("transform", function(d) {return "translate(" + x(d.value.date) + "," + y(d.value.rate) + ")"; })
       .attr("x", 3)
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
+
 // });
 
 
@@ -127,7 +128,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
     // We'll also use a `mousemove` listener to position our dots.
     // And a `mouseout` listener to hide the tooltip and the dot.
 
-
+/**
     city.selectAll(".dot")
         .data(function(d) {
           //The `city` selection already holds the data for our three lines.
@@ -149,7 +150,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
             //We're using the Moment.js library to get a month and year for our tooltip.
             //We're using Moment.js because our dates are in the js date format.
             var displayDate = moment(d.date).format("YYYY");
-            var displayVal = d.rate+"%";
+            var displayVal = d.rate+" students";
 
             //Append the values to the tooltip with some markup.
             $(".tt").html(
@@ -186,7 +187,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
             //And hide the tooltip.
             d3.select(this).style("opacity", 0);
             $(".tt").hide();
-        })
+        })**/
 
     
 });

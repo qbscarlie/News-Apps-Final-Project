@@ -25,7 +25,7 @@ body {
   stroke-width: 1.5px;
 }
 
-/**CSS for tooltips**/
+/**CSS for tooltips
 
 .tt {
     background-color: #fff;
@@ -33,16 +33,5 @@ body {
     outline: 1px solid #ccc;
     display: none;
     position: absolute;
-}
+}**/
 
-/** CSS for missing data **/
-
-.area {
-  fill: lightsteelblue;
-}
-
-.dot {
-  fill: white;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
