@@ -126,6 +126,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
     // We'll also use a `mousemove` listener to position our dots.
     // And a `mouseout` listener to hide the tooltip and the dot.
 
+
     city.selectAll(".dot")
         .data(function(d) {
           //The `city` selection already holds the data for our three lines.
@@ -146,7 +147,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
 
             //We're using the Moment.js library to get a month and year for our tooltip.
             //We're using Moment.js because our dates are in the js date format.
-            var displayDate = moment(d.date).format("MMM. YYYY");
+            var displayDate = moment(d.date).format("YYYY");
             var displayVal = d.rate+"%";
 
             //Append the values to the tooltip with some markup.
