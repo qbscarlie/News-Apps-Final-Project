@@ -26,6 +26,7 @@ var yAxis = d3.svg.axis()
 //The line function draws points for a path
 //Based on the `date` and `value` for each row in each series.
 var line = d3.svg.line()
+    .defined(function(d) { return d.rate; }) /*This checks to make sure there's a value for d.rate. If not, it leaves it out of the line. */
     .interpolate("basis")
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.rate); });
@@ -108,7 +109,7 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
       .attr("x", 3)
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
-});
+// });
 
 
     /* --------------- */
