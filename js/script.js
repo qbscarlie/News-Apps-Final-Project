@@ -110,8 +110,6 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
 
-// });
-
 
     /* --------------- */
     /* This is the tooltip logic. */
@@ -187,7 +185,5 @@ d3.csv("data/comoelemschoolsedited.csv", function(error, data) {
             //And hide the tooltip.
             d3.select(this).style("opacity", 0);
             $(".tt").hide();
-        })**/
-
-    
+        }) **/    
 });
